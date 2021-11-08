@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="Medical Equipment Market MEM is an online market where Medical Professionals can get any category of either pocket-friendly or high-end medical equipment brands; irrespective of their location. It's a home for also Procurement officers to confirm prices of medical equpment before awarding contracts. Retailers, Distributors and Original Equipment Manufacturers can showcase their brands too.">
+	<meta name="author" content="Mr. Kalio Tamunotonye">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Medical Equipment Market MEM</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
+	<style type="text/css">
+
+		* {
+			padding: 0;
+			margin:  0;
+			box-sizing: border-box;
+		}
+
+		.container-fluid {
+			min-height: 2000px;
+			max-width: 100%;
+			background-color: rgb(245,245,245);
+		}
+
+		.myContainer {
+			width: 97%;
+			margin: auto;
+			background-color: #fff;
+		}
+
+		#r1 {
+			min-height: 80px;
+			background-color: rgb(38,42,44);
+		}
+
+		#r2 {
+			margin: 20px 0;
+			margin: auto;
+		}
+
+		#r3 {
+			margin: 20px 0;
+			padding: 10px;
+			padding-right: 15px;
+			width: 96%;
+			margin: auto;
+		}
+
+		#r5 {
+			margin: 20px 0;
+			width: 96%;
+			margin: auto;
+			padding: 10px;
+		}
+
+		#r4, #r6, #r8 {
+			margin: 20px 0px;
+			padding: 10px;
+			width: 96%;
+			margin: auto;
+
+		}
+		#home-cart {
+			font-size: 30px;
+			text-align: right;
+			color: rgb(245,245,245);
+		}
+
+		#r1 .r1c {
+			height: 60px;
+			align-self: center;
+		}
+
+		#r1 #r1c2 {
+			text-align: center;
+		}
+
+		#r1c2 h3 {
+			color: rgb(245,245,245);
+		}
+
+		#r2 .r2c {
+			min-height: 450px;
+			padding: 10px;
+			background-color: rgb(245,245,245);
+		}
+
+		#r2c1, #r2c3 {
+			background-color: rgb(245,245,245);
+		}
+
+		.dropdown-item:hover {
+			border-bottom: 1px solid #000;
+			text-align: left;
+			background-color: #e0e0e0;
+		}
+
+		#r3 .r3c {
+			height: 350px;
+			box-shadow: 0 10px 10px 0 rgb(245,245,245);
+			transition: transform 0.5s;
+			border-radius: 10px;
+		}
+
+		#r3 .r3c:hover {
+			transform: translateY(-10px);
+		}
+
+		.r5c {
+			min-height: 350px;
+			width: 96%;
+			margin: auto;
+			background: linear-gradient(to top, rgb(244,246,245), rgb(240,239,244), rgb(244,246,245));
+		}
+		#r5c1 {
+			text-align: right;
+			padding:  10px;
+		}
+		#r5c1 img {
+			border-radius: 10px;
+			margin-right: 30px;
+		}
+		#r5c2 {
+			padding-top: 50px;
+			font-size: 20px;
+		}
+
+		#r5c2 h5 {
+			font-size: 35px;
+		}
+
+		#r7 {
+			width: 98%;
+			margin: auto;
+		}
+
+		#r7 .r7c {
+			min-height: 250px;
+			background: linear-gradient(to top, rgb(244,246,245), rgb(240,239,244), rgb(244,246,245));
+			padding: 10px;
+			width: 96%;
+			margin: auto;
+			border-radius: 10px;
+		}
+
+		#r7c2, #r7c3 {
+			box-shadow: 0 10px 20px 0 rgb(245,245,245);
+		}
+	
+		.equipment {
+			border: 3px solid white;
+			border-radius: 10px;
+			height: 350px;
+			line-height: 3px;
+			padding-top: 10px;
+			background: linear-gradient(to top, rgb(244,246,245), rgb(240,239,244), rgb(244,246,245));
+			box-shadow: 0 10px 20px 0 rgb(245,245,245);
+			transition: transform 0.5s;
+		}
+
+		.equipment:hover {
+			transform: translateY(-15px);
+		}
+
+		.equipment img {
+			width: 100%;
+		}
+
+		#r4 .r4c p, .r6c p, .r8c p {
+			padding-top: 8px;
+		}
+
+		#btn-category .btn-ctg {
+			padding:  2px;
+			text-align: left;
+		}
+
+		#active {
+			background-color: #e0e0e0;
+		}
+
+		#btn-category .btn-ctg:hover {
+			border-bottom: 1px solid #000;
+			padding: 3px;
+			background-color: #e0e0e0;
+		}
+
+		#div-ExtUser {
+			margin-top: 30px;
+		}
+
+		#newUser {
+			margin-left: 20px;
+		}
+
+		#div-ExtSeller {
+			margin-top: 27px;
+		}
+		#newSeller {
+			margin-left: 15px;
+		}
+		#div-reg h5 span {
+			margin-left: 20px;
+			font-size: 16px;
+		}
+		#div-reg {
+			font-size: 15px;
+		}
+		.span-buy {
+			text-decoration-line: line-through;
+			font-weight: bold;
+		}
+		#fa-times {
+			filter: grayscale(100%);
+		}
+		#fa-times:hover {
+			filter: grayscale(0%);
+		}
+		.btn-buy {
+			margin-right: 15px;
+			filter: grayscale(100%);
+		}
+		.btn-buy:hover {
+			filter: grayscale(0%);
+		}
+		.buy-cart {
+			background-color: rgb(250,230,158);
+			filter: grayscale(100%);
+		}
+		.buy-cart:hover {
+			filter: grayscale(0%);
+		}
+		.bannerBtn {
+			padding:  3px;
+			width: 85px;
+			border-radius: 15px;
+			background-color: lightskyblue;
+			filter: grayscale(100%);
+		}
+		.bannerBtn:hover {
+			width: 95px;
+			filter: grayscale(0%);
+			font-size: 18px;
+			color: rgb(245,245,245);
+		}
+		.approval .fa {
+			font-size: 12px;
+			padding-bottom: 3px;
+   			color: rgba(194,218,170,0.6);
+		}
+		#regPicsDiv {
+			margin-top: 20px;
+		}
+
+		#r6, #r7, #r8, #r9, #r10 {
+			margin: 20px 0;
+		}
+		#r9 {
+			width: 96%;
+			margin: auto;
+			padding: 10px;
+		}
+		#r9 .r9c {
+			min-height: 350px;
+			width: 96%;
+			margin: auto;
+			background: linear-gradient(to top, rgb(244,246,245), rgb(240,239,244), rgb(244,246,245));
+			border-radius: 10px;
+		}
+	
+		#r9c1 {
+			text-align: left;
+			padding:  10px;
+			font-size: 18px;
+		}
+
+		#r9c1 img {
+			border-radius: 10px;
+			margin-left: 10px;
+		}
+
+		#r9c2 {
+			padding-top: 10px;
+		}
+
+		#r9c1 h5 {
+			font-size: 32px;
+		}
+
+		#r10 {
+			width: 96%;
+			margin: auto;
+			padding: 10px;
+		}
+
+		#r10 .r10c {
+			min-height: 550px;
+			width: 96%;
+			margin: auto;
+			background-color: rgb(11,21,45);
+			padding: 10px;
+			border-radius: 10px;
+			color: rgb(245,245,245);
+			text-align: center;
+		}
+		#r10c1 p {
+			text-align: left;
+		}
+		#r10c3 img {
+			filter: grayscale(100%);
+		}
+
+		#r10c3 img:hover {
+			filter: grayscale(0%);
+		}
+		#r10hr {
+			background-color: rgb(245,245,245);
+			width: 90%;
+			margin-left: 20px;
+		}
+
+		.inb-div {
+			min-height: 40px;
+			padding: 15px;
+			background-color: rgb(245,245,245);
+		}
+
+		#map1 {
+			width: 100%;
+			height: 250px;
+		}
+
+		#r11 {
+			width: 96%;
+			margin: auto;
+			border-top: 1px solid white;
+		}
+		
+		#r11 .r11c {
+			width: 96%;
+			margin: auto;
+			height: 60px;
+			padding: 20px;
+			border-radius: 10px;
+			background-color: rgb(11,21,45);
+			color: rgb(245,245,245);
+			text-align: center;
+		}
+
+		#r10c2 form {
+			width: 96%;
+			margin: auto;
+			padding: 10px;
+		}
+
+
+		/*Media queries*/
+
+		// Extra small devices: portrait phones, less than 576px
+		@media (max-width: 575.98px) { 
+
+
+
+		 }
+
+		// Small devices: landscape phones, 576px and up
+		@media (min-width: 576px) and (max-width: 767.98px) {  
+
+
+		 }
+
+		// Medium devices: tablets, 768px and up
+		@media (min-width: 768px) and (max-width: 991.98px) { 
+
+
+		 }
+
+		// Large devices: desktops, 992px and up
+		@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+
+		 }
+
+		// Extra large devices: large desktops, 1200px and up
+		@media (min-width: 1200px) { 
+
+
+		 }
+
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="myContainer">
+<!-- Row 1 -->
+			<div class="row cnt-row" id="r1">
+				<div class="col-md-1 r1c" id="r1c1">
+					<div class="dropdown">
+					  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+					    <i class="fa fa-bars"></i>
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" id="home" href="home.html">Home</a>
+					    <a class="dropdown-item" id="about" href="about.html">About</a>
+					    <a class="dropdown-item" id="products" href="products.html">Products</a>
+					    <a class="dropdown-item" id="contact" href="contact.html">Contact</a>
+					    <a class="dropdown-item" id="complaints" href="complaints.html">Complaints</a>
+					    <a class="dropdown-item" id="registration" href="registration.html">Registration</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-md-7 r1c" id="r1c2">
+					<h3>MEDICAL EQUIPMENT MARKET</h3>
+				</div>
+				<div class="col-md-3 r1c" id="r1c3">
+					<input type="search" name="search" id="page-search" placeholder="Search equipment name" class="form-control">
+				</div>
+				<div class="col-md-1 r1c" id="r1c4">
+					<i class="fa fa-cart-plus" id="home-cart"></i>
+				</div>
+			</div>
+
+<!-- Row 2 -->
+			<div class="row cnt-row" id="r2">
+
+				<div class="col-md-2 r2c" id="r2c1">
+					<div class="btn-group-vertical btn-block" id="btn-category" role="group" aria-label="Button group with nested dropdown">
+					  <button type="button" class="btn btn-dark"><b>CATEGORIES</b></button>
+					  <button type="button" class="btn btn-ctg">Theatre</button>
+					  <button type="button" class="btn btn-ctg">Laboratory</button>
+					  <button type="button" class="btn btn-ctg">Ophthalmic</button>
+					  <button type="button" class="btn btn-ctg">Dental</button>
+					  <button type="button" class="btn btn-ctg">ENT</button>
+					  <button type="button" class="btn btn-ctg">Orthopedic</button>
+					  <button type="button" class="btn btn-ctg" id="active">General</button>
+					  <button type="button" class="btn btn-ctg">Consumables</button>
+					  <button type="button" class="btn btn-ctg">Hospital Furniture</button>
+					</div>
+				</div>
+
+				<div class="col-md-7 r2c" id="r2c2">
+					<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+					  <ol class="carousel-indicators">
+					    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+					    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+					    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+					    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+					    <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+					  </ol>
+					  <div class="carousel-inner">
+					    <div class="carousel-item active">
+					      <img src="images/banner2.png" class="d-block w-100" alt="Shop from work">
+					    </div>
+					    <div class="carousel-item">
+					      <img src="images/banner1.png" class="d-block w-100" alt="Some medical equipment">
+					    </div>
+					    <div class="carousel-item">
+					      <img src="images/banner4.png" class="d-block w-100" alt="Surgery">
+					    </div>
+					    <div class="carousel-item">
+					      <img src="images/banner3.png" class="d-block w-100" alt="ICU items">
+					    </div>
+					    <div class="carousel-item">
+					      <img src="images/banner5.png" class="d-block w-100" alt="Theatre Items">
+					    </div>
+					  </div>
+					</div>
+				</div>
+
+				<div class="col-md-3 r2c" id="r2c3">
+					<div id="div-reg">
+						<h5>No one is left out... <span><button class="btn btn-info" id="fa-times" style="display:none"><i class="fa fa-times"></i></button></span></h5>
+						<input type="radio" class="user" name="user" id="existingUser"> Existing Buyer?
+						<input type="radio" class="user" name="user" id="newUser"> New Buyer?<br>
+						<input type="radio" class="retailer" name="retailer" id="existingSeller"> Existing Seller?
+						<input type="radio" class="retailer" name="retailer" id="newSeller"> New Seller?<br>
+					</div>
+
+					<div id="regPicsDiv">
+						<img src="images/reg.png" class="img-fluid" alt="registration pics" id="regPics" width="360" height="300">
+					</div>
+
+					<div id="div-ExtUser" style="display:none" class="animate__animated animate__bounceInDown">
+						<h6>Existing Buyer</h6>
+						<form id="form-ExtUser" action="" method="post" class="form-group">
+							<input type="text" id="extUsrnm" class="form-control" placeholder="Username" required>
+							<input type="password" id="extUsrpswd" class="form-control" placeholder="Password" required>
+							<button id="extUser-btn" class="btn btn-block btn-dark">Sign In</button>
+						</form>
+					</div>
+
+					<div id="div-NewUser" style="display:none" class="animate__animated animate__rotateIn">
+						<h6>New Buyer</h6>
+						<form id="form-newUser" action="" method="post" class="form-group">
+							<input type="text" id="newName" class="form-control" placeholder="Firstname Lastname" required>
+							<input type="text" id="newPhone" class="form-control" placeholder="Phone Number" required>
+							<input type="text" id="newEmail" class="form-control" placeholder="Email Address" required>
+							<input type="password" id="newUsrpswd" class="form-control" placeholder="Password" required>
+							<input type="password" id="newUsrCFpswd" class="form-control" placeholder="Confirm Password" required>
+							<input type="checkbox" name="terms" id="termsCond"> I agree to <a href="#" data-toggle="modal" data-target="#staticBackdrop">Terms & Conditions</a>
+							<button id="newUser-btn" class="btn btn-block btn-dark">Sign In</button>
+						</form>
+					</div>
+
+
+					<div id="div-ExtSeller" style="display:none" class="animate__animated animate__fadeInBottomLeft" >
+						<h6>Existing Seller</h6>
+						<form id="form-ExtSler" action="" method="post" class="form-group">
+							<input type="text" id="extSlnm" class="form-control" placeholder="Username" required>
+							<input type="password" id="extSlpswd" class="form-control" placeholder="Password" required>
+							<button id="extSeller-btn" class="btn btn-block btn-dark">Sign In</button>
+						</form>
+					</div>
+
+					<div id="div-NewSeller" style="display:none" class="animate__animated animate__backInUp">
+						<h6>New Seller</h6>
+						<form id="form-newSeller" action="" method="post" class="form-group">
+							<input type="text" id="newSlName" class="form-control" placeholder="Firstname Lastname" required>
+							<input type="text" id="newSlPhone" class="form-control" placeholder="Phone Number" required>
+							<input type="text" id="newSlEmail" class="form-control" placeholder="Email Address" required>
+							<input type="password" id="newSlpswd" class="form-control" placeholder="Password" required>
+							<input type="password" id="newSlCFpswd" class="form-control" placeholder="Confirm Password" required>
+							<input type="checkbox" name="terms" id="termsCond2"> I agree to <a href="#" data-toggle="modal" data-target="#staticBackdrop">Terms & Conditions</a>
+							<button id="newSeller-btn" class="btn btn-block btn-dark">Sign In</button>
+						</form>
+					</div>
+
+				</div>
+
+			</div>
+
+
+<!-- Row 3 -->
+		<div class="inb-div"><h6>CATEGORIES</h6></div>
+
+			<div class="row cnt-row" id="r3">
+				<div class="col-md-4 r3c" id="r3c1">
+					<a href="#"><img src="images/disp-1.png" class="img-fluid" alt="Orthopedic Equipment" id="orthopedic" width="480" height="400"></a>	
+				</div>
+				<div class="col-md-4 r3c" id="r3c2">
+					<a href="#"><img src="images/disp-2.png" class="img-fluid" alt="Theatre Equipment" id="theatre" width="480" height="400"></a>
+				</div>
+				<div class="col-md-4 r3c" id="r3c3">
+					<a href="#"><img src="images/disp-3.png" class="img-fluid" alt="Medical Consumables" id="consumables" width="480" height="400"></a>
+				</div>
+			</div>
+
+<!-- Row 4 -->
+		<div class="inb-div"><h6>TOP SELLING</h6></div>
+
+			<div class="row cnt-row" id="r4">
+				<div class="col-md-3 r4c equipment" id="r4c1">
+					<img src="images/opt-1.png" class="img-fluid" alt="Tonometer" id="tonometer" width="250" height="250">	
+					<p><b>Tonometer</b></p>
+					<p><span class="span-buy">N</span>1,350,000</p>
+					<div class="approval">
+                       <i class="fa fa-star"></i>
+                       <i class="fa fa-star"></i>
+                       <i class="fa fa-star"></i>
+                       <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy1">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart1"><i class="fa fa-cart-plus"></i></button>
+				</div>
+				<div class="col-md-3 r4c equipment" id="r4c2">
+					<img src="images/opt-2.png" class="img-fluid" alt="AutoRef" id="autoRef" width="250" height="250">
+					<p><b>AutoRef</b></p>
+					<p><span class="span-buy">N</span>1,580,000</p>
+					<div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy2">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart2"><i class="fa fa-cart-plus"></i></button>
+				</div>
+				<div class="col-md-3 r4c equipment" id="r4c3">
+					<img src="images/opt-3.png" class="img-fluid" alt="Combi Unit" id="combiUnit" width="250" height="250">
+					<p><b>Combi Unit</b></p>
+					<p><span class="span-buy">N</span>1,820,000</p>
+					<div class="approval">
+                       <i class="fa fa-star"></i>
+                       <i class="fa fa-star"></i>
+                       <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy3">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart3"><i class="fa fa-cart-plus"></i></button>
+				</div>
+				<div class="col-md-3 r4c equipment" id="r4c4">
+					<img src="images/opt-4.png" class="img-fluid" alt="Slit Lamp" id="slitLamp" width="250" height="250">
+					<p><b>Slit Lamp</b></p>
+					<p><span class="span-buy">N</span>1,450,500</p>
+					 <div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                     </div>
+					<button class="btn btn-info btn-buy" id="btn-buy4">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart4"><i class="fa fa-cart-plus"></i></button>
+				</div>
+			</div>
+
+
+<!-- Row 5 -->
+			<div class="inb-div"><h6>PAID ADs</h6></div>
+				<div class="row cnt-row" id="r5">
+					<div class="col-md-6 r5c" id="r5c1">
+						<img src="images/gme-1.png" class="img-fluid" alt="Ventilator" id="ventilator" width="400" height="400">
+					</div>
+
+					<div class="col-md-6 r5c" id="r5c2">
+						<img src="images/covid.png" class="img-fluid" alt="Covid" id="covid" width="50" height="50">
+						<p>Covid 19 is real. Stay safe.</p>
+						<h5>Ventilator Machine</h5>
+						<p><span class="span-buy">N</span>1,890,500</p>
+						<button class="btn bannerBtn" id="bannerBtn1">Buy</button>
+					</div>
+					
+				</div>
+
+
+<!-- Row 6 -->
+		 	<div class="inb-div"><h6>FEATURED BRANDS</h6></div>
+			<div class="row cnt-row" id="r6">
+				<div class="col-md-3 r6c equipment" id="r6c1">
+					<img src="images/lab-1.png" class="img-fluid" alt="Stuart Block Heater" id="blockheater" width="250" height="250">
+					<p><b>Block Heater</b></p>
+					<p><span class="span-buy">N</span>660,000</p>
+					<div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy6">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart6"><i class="fa fa-cart-plus"></i></button>
+				</div>
+				<div class="col-md-3 r6c equipment" id="r6c2">
+					<img src="images/lab-2.png" class="img-fluid" alt="Floor Standing Centrifuge" id="centrifuge" width="250" height="250">
+					<p><b>Centrifuge</b></p>
+					<p><span class="span-buy">N</span>980,000</p>
+					<div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy7">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart7"><i class="fa fa-cart-plus"></i></button>
+				</div>
+				<div class="col-md-3 r6c equipment" id="r6c3">
+					<img src="images/lab-3.png" class="img-fluid" alt="Electric Oven" id="oven" width="250" height="250">
+					<p><b>Electric Oven</b></p>
+					<p><span class="span-buy">N</span>100,000</p>
+					<div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy8">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart8"><i class="fa fa-cart-plus"></i></button>
+				</div>
+				<div class="col-md-3 r6c equipment" id="r6c4">
+					<img src="images/lab-4.png" class="img-fluid" alt="Hematology Analyzer" id="Hematology Analyzer" width="250" height="250">
+					<p><b>Hematology Analyzer</b></p>
+					<p><span class="span-buy">N</span>580,000</p>
+					<div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy9">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart9"><i class="fa fa-cart-plus"></i></button>
+				</div>
+			</div>
+
+<!-- Row 7 -->
+		<div class="inb-div"><h6></h6></div>
+			<div class="row" id="r7">
+				<div class="col-md-8 r7c" id="r7c1">
+					<a href="#"><img src="images/blackfriday1.png" class="img-fluid" alt="Black Friday Sales"></a>
+				</div>
+				<div class="col-md-2 r7c" id="r7c2">
+					<a href="#"><img src="images/off-1.png" class="img-fluid" alt="AutoClave"></a>
+				</div>
+				<div class="col-md-2 r7c" id="r7c3">
+					<a href="#"><img src="images/off-2.png" class="img-fluid" alt=""></a>
+				</div>
+			</div>
+
+
+<!-- Row 8 -->
+		 <div class="inb-div"><h6>SPONSORED PRODUCTS</h6></div>
+			<div class="row cnt-row" id="r8">
+				<div class="col-md-3 r8c equipment" id="r8c1">
+					<img src="images/mem-1.png" class="img-fluid" alt="Surgical Suction" id="surgicalsuction" width="250" height="250">
+					<p><b>Surgical Suction</b></p>
+					<p><span class="span-buy">N</span>1,570,000</p>
+					<div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy10">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart10"><i class="fa fa-cart-plus"></i></button>
+				</div>
+				<div class="col-md-3 r8c equipment" id="r8c2">
+					<img src="images/mem-2.png" class="img-fluid" alt="Suction" id="suction" width="250" height="250">
+					<p><b>Suction</b></p>
+					<p><span class="span-buy">N</span>950,000</p>
+					<div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy11">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart11"><i class="fa fa-cart-plus"></i></button>
+				</div>
+				<div class="col-md-3 r8c equipment" id="r8c3">
+					<img src="images/mem-3.png" class="img-fluid" alt="Dehumidifier" id="dehumidifier" width="250" height="250">
+					<p><b>Dehumidifier</b></p>
+					<p><span class="span-buy">N</span>1,580,000</p>
+					<div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy12">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart12"><i class="fa fa-cart-plus"></i></button>
+				</div>
+				<div class="col-md-3 r8c equipment" id="r8c4">
+					<img src="images/mem-4.png" class="img-fluid" alt="Anesthesia" id="anesthesia" width="250" height="250">
+					<p><b>Anesthesia</b></p>
+					<p><span class="span-buy">N</span>1,580,000</p>
+					<div class="approval">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+					<button class="btn btn-info btn-buy" id="btn-buy13">Buy</button>
+					<button class="btn btn-warning buy-cart" id="buy-cart13"><i class="fa fa-cart-plus"></i></button>
+				</div>
+			</div>
+
+
+<!-- Row 9 -->
+			<div class="inb-div"><h6>PAID ADs</h6></div>
+				<div class="row cnt-row" id="r9">
+					<div class="col-md-7 r9c" id="r9c1">
+						<p>"Little Angel" as it's often called</p>
+						<h5>Extracorporeal lithotripter ESWL-109</h5>
+						<p>Lithotripsy with non X -ray radiation; Zero electromagnetic radiation; work of low energy; enhanced the quality of core components of shock wave source, extend the working life and reduce treatment costs, real micro- carbon technologies.</p>
+						<p><span class="span-buy">N</span>1,890,500</p>
+						<button class="btn bannerBtn" id="bannerBtn2">Buy</button>
+					</div>
+
+					<div class="col-md-5 r9c" id="r9c2">
+						<img src="images/smallbanner.png" class="img-fluid" alt="lithotripter" id="lithotripter" width="400" height="400">
+					</div>
+					
+				</div>
+
+
+<!-- Row 10 -->
+		<div class="inb-div"></div>
+			<div class="row" id="r10">
+				<div class="col-md-4 r10c" id="r10c1">
+					<h5>ABOUT US</h5>
+					<p>MEM is an acronym for Medical Equipment Market. It's an online market where all Medical Professionals can purchase any brand of medical equipment. This site also takes away the burden of advertising off the retailers and distributors. It also creates a platform for Procurement Officers to view prices before awarding contracts.</p>
+					<p><a href="#">FAQ</a><br>
+					<a href="#">Delivery</a><br>
+					<a href="#">Career</a><br>
+					<a href="#">Complaints</a></p>
+
+					<h5>PAYMENT PLATFORMS</h5>
+					<a href="#"><img src="images/mastercard.png" class="img-fluid" alt="Mastercard"></a>&nbsp;
+					<a href="#"><img src="images/visa.png" class="img-fluid" alt="Visa"></a>&nbsp;
+					<a href="#"><img src="images/verve.png" class="img-fluid" alt="Verve"></a>&nbsp;
+					<a href="#"><img src="images/quickteller.png" class="img-fluid" alt="Quickteller"></a>
+				</div>
+
+				<div class="col-md-4 r10c" id="r10c2">
+					<h5>CONTACT US</h5>
+					<form action="" method="post" class="form-group">
+						<input type="name" name="fname" id="cont-fname" placeholder="Firstname Lastname" class="form-control" required><br>
+						<input type="email" name="email" id="cont-email" placeholder="Email Address" class="form-control" required><br>
+						<input type="text" name="email" id="cont-email" placeholder="Phone Number" class="form-control" required><br>
+						<textarea id="cont-message" placeholder="Enter your Enquiry or Message" rows="5" class="form-control"></textarea><br>
+						<input type="file" name="file" id="cont-file" placeholder="Choose file" class="form-control" ><br>
+						<input type="submit" class="btn btn-success btn-block" name="button" id="cont-btn" value="SUBMIT">
+					</form>
+				</div>
+
+				<div class="col-md-4 r10c" id="r10c3">
+					<h5>REACH US</h5>
+					<iframe id="map1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.427081810277!2d3.356124514623912!3d6.593722095231526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b92404fc53e8b%3A0x541d10234b33485f!2sMoat%20Academy%20for%20Developers!5e0!3m2!1sen!2sng!4v1636289713266!5m2!1sen!2sng" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy" class="img-fluid" alt="map to our address"></iframe>
+					<hr id="r10hr">
+					<div>
+						<p><i class="fa fa-home"></i> 2 Irewole Street, Awoshika,<br>Opebi Road, Ikeja, Lagos<br>
+						<i class="fa fa-phone"></i> 08186705771 <br>
+						<i class="fa fa-envelope"></i> info@mem.com</p>
+					</div>
+					<hr id="r10hr">
+					<a href="#"><img src="images/facebook.png" class="img-fluid" alt="Facebook"></a>
+					<a href="#"><img src="images/twitter.png" class="img-fluid" alt="Twitter"></a>
+					<a href="#"><img src="images/linkedin.png" class="img-fluid" alt="LinkedIn"></a>
+					<a href="#"><img src="images/instagram.png" class="img-fluid" alt="Instagram"></a>
+				</div>
+			</div>
+
+
+<!-- Row 11 -->
+			<div class="row" id="r11">
+				<div class="col-md-12 r11c" id="r11c1">
+					<p>Designed by Medical Equipment Market. All rights reserved &copy; MEM </p>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+		
+
+		<script type="text/javascript">
+
+
+
+			$(document).ready(function(){
+
+				$('.btn-ctg').mouseenter(function(){
+					$('#active').prop('backgroundColor','');
+				})
+
+				$('#existingUser').click(function(){
+					$('.retailer').hide();
+					$('#regPicsDiv').hide();
+					$('#newUser').hide();
+					$('#div-ExtUser').show();
+					$('#div-ExtUser').addClass('animate__animated animate__bounceInDown');
+					$('#fa-times').show();
+				})
+
+				$('#extUser-btn').click(function(){
+					var extUserName = $('#extUsrnm').val();
+					var extUserPswd = $('#extUsrpswd').val();
+					if (extUserName == '' && extUserPswd == '') {
+						alert('You have not input any details');
+						extUsrnm.focus();
+						$('#extUsrnm').css('border','3px solid red');
+						return false;
+						var extUserName = $('#extUsrnm').val('');
+						var extUserPswd = $('#extUsrpswd').val('');
+					}
+					else if (extUserName == '') {
+						alert('Please input Username');
+						extUsrnm.focus();
+						$('#extUsrnm').css('border','3px solid red');
+						return false;
+						var extUserName = $('#extUsrnm').val('');
+						var extUserPswd = $('#extUsrpswd').val('');
+					}
+					else if (extUserPswd == '') {
+						alert('Please input Password');
+						extUsrpswd.focus();
+						$('#extUsrpswd').css('border','3px solid red');
+						return false;
+						var extUserName = $('#extUsrnm').val('');
+						var extUserPswd = $('#extUsrpswd').val('');
+					}
+					else {
+						alert('You are welcome ' + extUserName);
+					}
+				});
+
+
+				$('#existingSeller').click(function(){
+					$('.user').hide();
+					$('#regPicsDiv').hide();
+					$('#newSeller').hide();
+					$('#div-ExtSeller').show();
+					$('#div-ExtSeller').addClass('animate__animated animate__fadeInBottomLeft');
+					$('#fa-times').show();
+				})
+
+				$('#extSeller-btn').click(function(){
+					var extSellerName = $('#extSlnm').val();
+					var extSellerPswd = $('#extSlpswd').val();
+					if (extSellerName == '' && extSellerPswd == '') {
+						alert('You have not input any details');
+						extSlnm.focus();
+						$('#extSlnm').css('border','3px solid red');
+						return false;
+						var extSellerName = $('#extSlnm').val('');
+						var extSellerPswd = $('#extSlpswd').val('');
+					}
+					else if (extSellerName == '') {
+						alert('Please input Username');
+						extSlnm.focus();
+						$('#extSlnm').css('border','3px solid red');
+						return false;
+						var extSellerName = $('#extSlnm').val('');
+						var extSellerPswd = $('#extSlpswd').val('');
+					}
+					else if (extSellerPswd == '') {
+						alert('Please input Password');
+						extSlpswd.focus();
+						$('#extSlpswd').css('border','3px solid red');
+						return false;
+						var extSellerName = $('#extSlnm').val('');
+						var extSellerPswd = $('#extSlpswd').val('');
+					}
+					else {
+						alert('You are welcome ' + extSellerName);
+					}
+				});
+
+
+				$('#newUser').click(function(){
+					$('.retailer').hide();
+					$('#regPicsDiv').hide();
+					$('#existingUser').hide();
+					$('#div-NewUser').show();
+					$('#div-NewUser').addClass('animate__animated animate__rotateIn');
+					$('#fa-times').show();
+				});
+
+				$('#newUser-btn').click(function(){
+					var NewBuyerName = $('#newName').val();
+					var NewBuyerPhone = $('#newPhone').val();
+					var NewBuyerEmail = $('#newEmail').val();
+					var NewBuyerPassword = $('#newUsrpswd').val();
+					var NewBuyerCnfPassword = $('#newUsrCFpswd').val();
+					var NewBuyerTC = $('#termsCond').prop('checked');
+
+					if (NewBuyerName == "" && NewBuyerPhone =="" && NewBuyerEmail == "" && NewBuyerPassword == "" && NewBuyerCnfPassword == "") { 
+						alert('The form has not been filled yet');
+						newName.focus();
+						$('#newName').css('border','3px solid red');
+						return false;
+					}
+					else if (NewBuyerName == "") {
+						alert('Please input Name');
+						newName.focus();
+						$('#newName').css('border','3px solid red');
+						return false;
+					}
+					else if (NewBuyerPhone == "") {
+						alert('Please input Phone Number');
+						newPhone.focus();
+						$('#newPhone').css('border','3px solid red');
+						return false;
+					}
+					else if (NewBuyerEmail == "") {
+						alert('Please input Email');
+						newEmail.focus();
+						$('#newEmail').css('border','3px solid red');
+						return false;
+					}
+					else if (NewBuyerPassword == "") {
+						alert('Please input Password');
+						newUsrpswd.focus();
+						$('#newUsrpswd').css('border','3px solid red');
+						return false;
+					}
+					else if (NewBuyerCnfPassword == "") {
+						alert('Please re-enter your Password');
+						newUsrCFpswd.focus();
+						$('#newUsrCFpswd').css('border','3px solid red');
+						return false;
+					}
+					else if (NewBuyerPassword !== NewBuyerCnfPassword) { 
+						alert('Passwords do not match');
+						newUsrCFpswd.focus();
+						$('#newUsrCFpswd').css('border','3px solid red');
+						return false;
+					}
+					else if (NewBuyerTC != true) { 
+						alert('Agree to our Terms & conditions?');
+						termsCond.focus();
+						$('#termsCond').css('border','3px solid red');
+						return false;
+					}
+					else {
+						alert('Thank you for Signing up ' + NewBuyerName + '!');
+					}
+
+				});
+
+
+				$('#newSeller').click(function(){
+					$('.user').hide();
+					$('#regPicsDiv').hide();
+					$('#existingSeller').hide();
+					$('#div-NewSeller').show();
+					$('#div-NewSeller').addClass('animate__animated animate__backInUp');
+					$('#fa-times').show();
+				});
+
+				$('#newSeller-btn').click(function(){
+					var NewSellerName = $('#newSlName').val();
+					var NewSellerPhone = $('#newSlPhone').val();
+					var NewSellerEmail = $('#newSlEmail').val();
+					var NewSellerPassword = $('#newSlpswd').val();
+					var NewSellerCnfPassword = $('#newSlCFpswd').val();
+					var NewSellerTC = $('#termsCond2').prop('checked');
+
+					if (NewSellerName == "" && NewSellerPhone =="" && NewSellerEmail == "" && NewSellerPassword == "" && NewSellerCnfPassword == "") { 
+						alert('The form has not been filled yet');
+						newSlName.focus();
+						$('#newSlName').css('border','3px solid red');
+						return false;
+					}
+					else if (NewSellerName == "") {
+						alert('Please input Name');
+						newSlName.focus();
+						$('#newSlName').css('border','3px solid red');
+						return false;
+					}
+					else if (NewSellerPhone == "") {
+						alert('Please input Phone Number');
+						newSlPhone.focus();
+						$('#newSlPhone').css('border','3px solid red');
+						return false;
+					}
+					else if (NewSellerEmail == "") {
+						alert('Please input Email');
+						newSlEmail.focus();
+						$('#newSlEmail').css('border','3px solid red');
+						return false;
+					}
+					else if (NewSellerPassword == "") {
+						alert('Please input Password');
+						newSlpswd.focus();
+						$('#newSlpswd').css('border','3px solid red');
+						return false;
+					}
+					else if (NewSellerCnfPassword == "") {
+						alert('Please re-enter your Password');
+						newSlCFpswd.focus();
+						$('#newSlCFpswd').css('border','3px solid red');
+						return false;
+					}
+					else if (NewSellerPassword !== NewSellerCnfPassword) { 
+						alert('Passwords do not match');
+						newSlCFpswd.focus();
+						$('#newSlCFpswd').css('border','3px solid red');
+						return false;
+					}
+					else if (NewSellerTC != true) { 
+						alert('Agree to our Terms & conditions?');
+						termsCond2.focus();
+						$('#termsCond2').css('border','3px solid red');
+						return false;
+					}
+					else {
+						alert('Thank you for Signing up ' + NewSellerName + '!');
+					}
+
+				});
+
+				$('#fa-times').click(function(){
+					location.reload(true);
+				})
+		});
+	</script>
+
+
+
+
+	<!-- Button trigger modal -->
+		<!-- Modal -->
+		<div class="modal" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-scrollable">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p><b>AGREEMENT TO TERMS</b>
+
+These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and [business entity name] (MEDICAL EQUIPMENT MARKET), concerning your access to and use of the [www.mem.com] website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”).
+
+You agree that by accessing the Site, you have read, understood, and agree to be bound by all of these Terms and Conditions. If you do not agree with all of these Terms and Conditions, then you are expressly prohibited from using the Site and you must discontinue use immediately.
+
+Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms and Conditions at any time and for any reason.
+
+We will alert you about any changes by updating the “Last updated” date of these Terms and Conditions, and you waive any right to receive specific notice of each such change.
+
+It is your responsibility to periodically review these Terms and Conditions to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms and Conditions by your continued use of the Site after the date such revised Terms and Conditions are posted.
+
+The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country.
+
+Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.
+
+These terms and conditions were generated by Medical Equipment Market.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+</body>
+</html>
