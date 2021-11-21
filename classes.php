@@ -15,14 +15,13 @@ include_once("constants.php");
 class MyRetailers {
 
 	// create variables/properties/attributes 
-	public $retailer_firstname;
-	public $retailer_lastname;
-	public $retailer_phone;
-	public $retailer_email;
-	public $retailer_username;
-	public $retailer_password;
-	public $retailer_gender;
-	public $retailer_address;
+	public $retailers_firstname;
+	public $retailers_lastname;
+	public $retailers_phone;
+	public $retailers_company;
+	public $retailers_email;
+	public $retailers_password;
+	public $retailers_address;
 	public $dbcon; //database connection handler
 
 	// create method/function/operation
@@ -32,17 +31,17 @@ class MyRetailers {
 		if ($this->dbcon->connect_error) {
 			die("connection failed".$this->dbcon->connect_error)."<br>";
 		}
-		else {
-			echo "Connection successful";
-		}
+		// else {
+		// 	echo "Connection successful";
+		// }
 	}
 
-	function addRetailers($retailer_firstname, $retailer_lastname, $retailer_phone, $retailer_email, $retailer_username, $retailer_password, $retailer_gender, $retailer_address) {
+	function addRetailers($retailers_firstname, $retailers_lastname, $retailers_phone, $retailers_company, $retailers_email, $retailers_password, $retailers_address) {
 
 		// encrypt pasword
-		$encr_pswd = md5($retailer_password);
+		$retailers_password = md5($retailers_password);
 
-		$sql = "INSERT INTO retailers(retailer_firstname, retailer_lastname, retailer_phone, retailer_email, retailer_username, retailer_password, retailer_gender, retailer_address) VALUES('$retailer_firstname', '$retailer_lastname', '$retailer_phone', '$retailer_email', '$retailer_username', '$encr_pswd', '$retailer_gender', '$retailer_address')";
+		$sql = "INSERT INTO retailers(retailers_firstname, retailers_lastname, retailers_phone, retailers_company, retailers_email, retailers_password, retailers_address) VALUES('$retailers_firstname', '$retailers_lastname', '$retailers_phone', '$retailers_company', '$retailers_email', '$retailers_password', '$retailers_address')";
 
 		$result = $this->dbcon->query($sql);
 
@@ -53,6 +52,39 @@ class MyRetailers {
 			return "Contact could not be added".$this->dbcon->error."<br>";
 		}
 	}
+
+
+	function loginRetailer($retailers_email, $retailers_password) {
+
+		$retailers_password = md5($retailers_password);
+
+		$sql = "SELECT retailers_email FROM retailers WHERE retailers_email='$retailers_email' AND retailers_password='$retailers_password'";
+
+		$result = $this->dbcon->query($sql);
+
+		if ($result->num_rows==1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+
+		// check if email address exists
+		function checkEmail($retailers_email) {
+
+			// write query
+			$sql = "SELECT retailers_email FROM retailers WHERE retailers_email='$retailers_email'";
+			 // run the query
+			$result = $this->dbcon->query($sql);
+			if ($this->dbcon->affected_rows == 1) {
+				return false;
+			}
+			else {
+				return false;
+			}
+		}
 
 }
 // End MyRetailers Class Diagram
@@ -205,9 +237,9 @@ class MyRetailers {
 		}
 
 
-		function addEquipment($equip_name, $equip_brand, $equip_model, $equip_manuf, $equip_price, $equip_rep, $equip_avail) {
+		function addEquipment($equip_name, $equip_brand, $equip_model, $equip_manuf, $equip_price, $equip_rep, $equip_avail, $equip_pix) {
 
-			$sql = "INSERT INTO equipment(equip_name, equip_brand, equip_model, equip_manuf, equip_price, equip_avail) VALUES('$equip_name', '$equip_brand', '$equip_model', '$equip_manuf', '$equip_price', '$equip_rep', '$equip_avail')";
+			$sql = "INSERT INTO equipment(equip_name, equip_brand, equip_model, equip_manuf, equip_price, equip_avail, equip_pix) VALUES('$equip_name', '$equip_brand', '$equip_model', '$equip_manuf', '$equip_price', '$equip_rep', '$equip_avail', '$equip_pix')";
 
 			// check result
 			$result = $this->dbcon->query($sql);
@@ -280,5 +312,114 @@ class MyRetailers {
 	}
 
 // End MyLogistics Class Diagram
+
+
+// Start My Admin Class Diagram
+
+// create class
+	class MyAdmin {
+
+		// create variables/properties/attributes
+		public $admin_fname;
+		public $admin_lname;
+		public $admin_phone;
+		public $admin_email;
+		public $admin_password;
+		public $admin_gender;
+		public $admin_staffno;
+		public $dbcon; //database connection handler
+
+
+		//create method/function/operation
+		function __construct() {
+			$this->dbcon = new MySqli(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+			if ($this->dbcon->connect_error){
+				die("Connection failed".$this->dbcon->connect_error)."<br>";
+			}
+			// else {
+			// 	echo "Connection successful";
+			// }
+		}
+
+
+		function addAdmin($admin_fname, $admin_lname, $admin_phone, $admin_email, $admin_password, $admin_gender, $admin_staffno) {
+
+		// encrypt password
+		$encr_pswd = md5($admin_password);
+
+		$sql = "INSERT INTO admintable(admin_fname, admin_lname, admin_phone, admin_email, admin_password, admin_gender, admin_staffno) VALUES('$admin_fname', '$admin_lname', '$admin_phone', '$admin_email', '$encr_pswd', '$admin_gender', '$admin_staffno')";
+
+		// check result
+		$result = $this->dbcon->query($sql);
+
+			if ($this->dbcon->affected_rows == 1) {
+				return true;
+			}
+			else {
+				return false;
+			}
+
+		}
+
+
+
+		// Get all Users information
+		function getAdmin() {
+			$sql = "SELECT * FROM admintable";
+
+			$result = $this->dbcon->query($sql);
+			$rows = array();
+
+			if ($this->dbcon->affected_rows > 0) {
+				while ($row = $result->fetch_array()) {
+					$rows[] = $row;
+				}
+				return $rows;
+			}
+			else {
+				return $rows;
+			}
+			
+		}
+
+
+		function adminLogin($admin_email, $admin_password) {
+
+			$admin_password = md5($admin_password);
+			$sql = "SELECT admin_email FROM admintable WHERE admin_email='$admin_email' AND admin_password='$admin_password'";
+			$result = $this->dbcon->query($sql);
+			
+			if ($result->num_rows==1) {
+				return true;
+			} 
+			else {
+				return false;
+			}
+			
+		}
+
+
+		// check if email address exists
+		function confirmemailaddress($admin_email) {
+
+			// write query
+			$sql = "SELECT admin_email FROM admintable WHERE admin_email='$admin_email'";
+			 // run the query
+			$result = $this->dbcon->query($sql);
+			if ($this->dbcon->affected_rows == 1) {
+				return false;
+			}
+			else {
+				return false;
+			}
+		}
+
+
+	}
+
+// End  My Admin Class Diagram
+
+
 
 ?>

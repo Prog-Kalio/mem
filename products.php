@@ -5,7 +5,7 @@ include_once("memheader.php");
 
 <!-- Row 4 -->
 		<div class="title-div"><h3>PRODUCT CATEGORIES</h3></div>
-		<div class="inb-div"><h6>OPHTHALMIC EQUIPMENT</h6></div>
+		<div class="inb-div" id="ophthalmicE"><h6>OPHTHALMIC EQUIPMENT</h6></div>
 
 			<div class="row cnt-row" id="r4">
 				<div class="col-md-3 r4c equipment" id="r4c1">
@@ -65,7 +65,7 @@ include_once("memheader.php");
 
 
 <!-- Row 6 -->
-		 	<div class="inb-div"><h6>LABORATORY EQUIPMENT</h6></div>
+		 	<div class="inb-div" id="laboratoryE"><h6>LABORATORY EQUIPMENT</h6></div>
 			<div class="row cnt-row" id="r6">
 				<div class="col-md-3 r6c equipment" id="r6c1">
 					<img src="images/lab-1.png" class="img-fluid" alt="Stuart Block Heater" id="blockheater" width="250" height="250">
@@ -123,7 +123,7 @@ include_once("memheader.php");
 
 
 <!-- Row 8 -->
-		 <div class="inb-div"><h6>THEATRE EQUIPMENT</h6></div>
+		 <div class="inb-div" id="theatreE"><h6>THEATRE EQUIPMENT</h6></div>
 			<div class="row cnt-row" id="r8">
 				<div class="col-md-3 r8c equipment" id="r8c1">
 					<img src="images/mem-1.png" class="img-fluid" alt="Surgical Suction" id="surgicalsuction" width="250" height="250">

@@ -11,9 +11,9 @@ include_once("memheader.php");
 				<div class="col-md-2 r2c" id="r2c1">
 					<div class="btn-group-vertical btn-block" id="btn-category" role="group" aria-label="Button group with nested dropdown">
 					  <a href="products.php"><button type="button" class="btn btn-dark"><b>CATEGORIES</b></button></a>
-					  <a href="products.php"><button type="button" class="btn btn-ctg">Theatre</button></a>
-					  <a href="products.php"><button type="button" class="btn btn-ctg">Laboratory</button></a>
-					  <a href="products.php"><button type="button" class="btn btn-ctg">Ophthalmic</button></a>
+					  <a href="products.php#theatreE"><button type="button" class="btn btn-ctg">Theatre</button></a>
+					  <a href="products.php#laboratoryE"><button type="button" class="btn btn-ctg">Laboratory</button></a>
+					  <a href="products.php#ophthalmicE"><button type="button" class="btn btn-ctg">Ophthalmic</button></a>
 					  <a href="products.php"><button type="button" class="btn btn-ctg">Dental</button></a>
 					  <a href="products.php"><button type="button" class="btn btn-ctg">ENT</button></a>
 					  <a href="products.php"><button type="button" class="btn btn-ctg">Orthopedic</button></a>
@@ -53,9 +53,11 @@ include_once("memheader.php");
 				</div>
 
 				<div class="col-md-3 r2c" id="r2c3">
-					<h5>We are security conscious</h5>
+					<h5>Endorsed By:</h5>
 					<div id="regPicsDiv">
-						<img src="images/security.png" class="img-fluid" alt="registration pics" id="regPics" width="360" height="300">
+						<img src="images/nma_logo.png" class="img-fluid" alt="registration pics" id="regPics" width="360" height="150">
+						<h5>Secured By:</h5>
+						<img src="images/security.png" class="img-fluid" alt="registration pics" id="img2" width="360" height="150">
 					</div>
 				</div>
 

@@ -26,118 +26,72 @@ include_once("memheader.php");
 
 		</div>
 
+
 		<div class="col-md-4 loginclass" id="loginrow2">
-
-			<div id="regPicsDiv">
-				<img src="images/reg.png" class="img-fluid" alt="registration pics" id="regPics" width="480" height="400">
-			</div>
-
-
-			<div id="div-ExtUser" style="display:none" class="animate__animated animate__bounceInDown">
-				<h6>Existing Buyer</h6>
-
-				<form name="form-ExtUser" action="" method="post" class="form-group">
-					<!-- Login for customers -->
+<!-- PHP Signup for customers -->
 			<?php  
 
-					if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-						$newerrors = array();
-
-						if (empty($_POST['extUsrmail'])) {
-							$newerrors[] = "Email field is required";
-						}
-
-						if (empty($_POST['extUsrpswd'])) {
-							$newerrors[]= "Password field is required";
-						}
-
-						if (!empty($newerrors)) {
-							foreach ($newerrors as $key => $value) {
-								echo "<div class='alert alert-danger'>$value</div>";
-							}
-							
-						}
-						
-						$objlogin = new MyCustomers;
-
-						if ($objlogin->login($_POST['extUsrmail'], $_POST['extUsrpswd']) == true) {
-
-							header("Location: dashboard.php");
-							exit;
-						}
-
-					}
-
-			?>
-
-					<input type="text" name="extUsrmail" class="form-control" placeholder="Email address" value="
-						<?php
-								if (isset($_POST['extUsrmail'])) {
-									echo $_POST['extUsrmail'];
-								}
-							?>
-					">
-					<input type="password" name="extUsrpswd" class="form-control" placeholder="Password">
-					<input type="submit" name="extUser-btn" class="btn btn-block btn-dark" value="Sign In">
-				</form>
-			</div>
-
-
-
-			<div id="div-NewUser" style="display:none" class="animate__animated animate__rotateIn">
-				<h6>New Buyer</h6>
-						<form id="form-newUser" action="" method="post" class="form-group" name="NewUser-Form">
-										<?php  
-
-			// to check if Method is post
-			// echo "<pre>";
-			// print_r($_SERVER);
-			// echo "</pre>";
-
-			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			if (isset($_POST['cust_signup_btn']) && $_POST['cust_signup_btn'] == 'Sign Up') {
 
 				// next we validate the fields, but first let's open an array to store all received feedback or errors
 
 				$errors = array();
 
-				if (empty($_POST['newFName'])) {
-					$errors[] = "Firstname field cannot be empty!";
+				if (empty($_POST['cust_firstname'])) {
+					$errors[] = "Firstname is required!";
 				}
-				if (empty($_POST['newLName'])) {
-					$errors[] = "Lastname field cannot be empty!";
+				if (empty($_POST['cust_lastname'])) {
+					$errors[] = "Lastname is required!";
 				}
-				if (empty($_POST['newPhone'])) {
-					$errors[] = "Phone Number field cannot be empty!";
+				if (empty($_POST['cust_phone'])) {
+					$errors[] = "Phone Number is required!";
 				}
-				if (empty($_POST['newEmail'])) {
-					$errors[] = "Email Address field cannot be empty!";
+				if (empty($_POST['cust_email'])) {
+					$errors[] = "Email Address is required!";
 				}
-				if (empty($_POST['newUsername'])) {
-					$errors[] = "Username field cannot be empty!";
+				if (empty($_POST['cust_username'])) {
+					$errors[] = "Username is required!";
 				}
-				if (empty($_POST['newUsrpswd'])) {
-					$errors[] = "Password field cannot be empty!";
+				if (empty($_POST['cust_password'])) {
+					$errors[] = "Password is required!";
 				}
-				elseif (strlen(trim($_POST['newUsrpswd'])) < 6) {
+				elseif (strlen(trim($_POST['cust_password'])) < 6) {
 					$errors[] = "Password must be more than six characters!";
 				}
-				if (empty($_POST['newUsrCFpswd'])) {
+				if (empty($_POST['cust_CFpassword'])) {
 					$errors[] = "Password Confirmation field cannot be empty!";
 				}
-				if (($_POST['newUsrpswd']) !== ($_POST['newUsrCFpswd'])) {
+				if (($_POST['cust_password']) !== ($_POST['cust_CFpassword'])) {
 					$errors[] = "Passwords do not match!";
 				}
-				if (empty($_POST['usrgender'])) {
-					$errors[] = "Please select Gender!";
+				if (empty($_POST['cust_gender'])) {
+					$errors[] = "Gender is required!";
 				}
-				if (empty($_POST['usraddress'])) {
-					$errors[] = "Please fill your address!";
+				if (empty($_POST['cust_address'])) {
+					$errors[] = "Address is required!";
 				}
-				if (empty($_POST['usrterms'])) {
+				if (empty($_POST['terms'])) {
 					$errors[] = "You are yet to agree to our Terms!";
 				}
 
+
+				if(empty($errors)) {
+					$objuser = new MyCustomers;
+
+					// check if email address exists
+	              if ($objuser->checkEmailAddress($_POST['cust_email']) == true) {
+	                echo "<div class='alert alert-danger'>Email Address already taken!</div>";
+	              }
+	              else {
+	              	// register
+					$new_User = $objuser->addCustomers($_POST['cust_firstname'], $_POST['cust_lastname'], $_POST['cust_phone'], $_POST['cust_email'], $_POST['cust_username'], $_POST['cust_password'], $_POST['cust_gender'], $_POST['cust_address']);
+
+						$_SESSION['cust_email'] = $_POST['cust_email'];
+
+					header("Location: customer_dashboard.php?msg=Successfuly logged in");
+					exit;
+					}
+				}
 
 				// next we alert the errors found
 
@@ -148,114 +102,248 @@ include_once("memheader.php");
                 	echo "<li>$value</li>";
               			}
               		echo "</ul>";
-
-              		// print_r($errors);
-				}
-				else {
-					$objuser = new MyCustomers;
-
-				// check if email address exists
-	              if ($objuser->checkemailaddress($_POST['newEmail']) == true) {
-	                echo "<div class='alert alert-danger'>Email Address already taken!</div>";
-	              }
-	              else {
-	              	// register
-					$new_User = $objuser->addCustomers($_POST['newFName'], $_POST['newLName'], $_POST['newPhone'], $_POST['newEmail'], $_POST['newUsername'], $_POST['newUsrpswd'], $_POST['usrgender'], $_POST['usraddress']);
-
-					header("Location: dashboard.php");
-				
 				}
 
 			}
 
-		}
 			?>
-							<label>Firstname</label>
-							<input type="text" name="newFName" class="form-control" placeholder="Firstname" value="
-							<?php
-								if (isset($_POST['newFName'])) {
-									echo $_POST['newFName'];
-								}
-							?>
-							">
-							<label>Lastname</label>
-							<input type="text" name="newLName" class="form-control" placeholder="Lastname" value="
-							<?php
-								if (isset($_POST['newLName'])) {
-									echo $_POST['newLName'];
-								}
-							?>
-							">
-							<label>Phone Number</label>
-							<input type="text" name="newPhone" class="form-control" placeholder="Phone Number" value="
-							<?php
-								if (isset($_POST['newPhone'])) {
-									echo $_POST['newPhone'];
-								}
-							?>
-							">
-							<label>Email Address</label>
-							<input type="text" name="newEmail" class="form-control" placeholder="Email Address" value="
-							<?php
-								if (isset($_POST['newEmail'])) {
-									echo $_POST['newEmail'];
-								}
-							?>
-							">
-							<label>Username</label>
-							<input type="text" name="newUsername" class="form-control" placeholder="Username" value="
-							<?php
-								if (isset($_POST['newUsername'])) {
-									echo $_POST['newUsername'];
-								}
-							?>
-							">
-							<label>Password</label>
-							<input type="password" name="newUsrpswd" class="form-control" placeholder="Password">
-							<label>Confirm Password</label>
-							<input type="password" name="newUsrCFpswd" class="form-control" placeholder="Confirm Password">
-							<label>Select Gender</label>
-							<input type="radio" name="usrgender" id="usrmale" value="male"> Male
-							<input type="radio" name="usrgender" id="usrfemale" value="female"> Female
-							<label>Address</label>
-							<textarea id="usraddress" placeholder="Enter Address" name="usraddress" class="form-control" rows="3">
-							<?php
-								if (isset($_POST['usraddress'])) {
-									echo $_POST['usraddress'];
-								}
-							?>
-							</textarea>
-							<input type="checkbox" name="usrterms" id="termsCond"> I agree to <a href="#" data-toggle="modal" data-target="#staticBackdrop">Terms & Conditions</a>
-							<input type="submit" id="newUser-btn" class="btn btn-block btn-dark" name="newuser_btn" value="Sign In">
-						</form>
+
+			<div id="regPicsDiv">
+			
+			<div>
+					
+<!-- PHP Signup for Retailers -->
+			<?php  
+
+			if (isset($_POST['retailers_signup_btn']) && $_POST['retailers_signup_btn'] == 'Sign Up') {
+
+				// next we validate the fields, but first let's open an array to store all received feedback or errors
+
+				$pickerrors = array();
+
+				if (empty($_POST['retailers_firstname'])) {
+					$pickerrors[] = "Firstname is required!";
+				}
+				if (empty($_POST['retailers_lastname'])) {
+					$pickerrors[] = "Lastname is required!";
+				}
+				if (empty($_POST['retailers_phone'])) {
+					$pickerrors[] = "Phone Number is required!";
+				}
+				if (empty($_POST['retailers_company'])) {
+					$pickerrors[] = "Company Name is required!";
+				}
+				if (empty($_POST['retailers_email'])) {
+					$pickerrors[] = "Email Address is required!";
+				}
+				if (empty($_POST['retailers_password'])) {
+					$pickerrors[] = "Password is required!";
+				}
+				if (empty($_POST['retailers_address'])) {
+					$pickerrors[] = "Address is required!";
+				}
+				if (empty($_POST['terms'])) {
+					$pickerrors[] = "You are yet to agree to our Terms!";
+				}
+
+				// next we alert the errors found
+
+				if (!empty($pickerrors)) {
+
+					echo "<ul class='alert alert-danger'>";
+             		foreach ($pickerrors as $key => $value) {
+                	echo "<li>$value</li>";
+              			}
+              		echo "</ul>";
+				}
+
+				elseif(empty($pickerrors)) {
+					$objsign = new MyRetailers;
+
+					// check if email address exists
+	              if ($objsign->checkEmail($_POST['retailers_email']) == true) {
+	                echo "<div class='alert alert-danger'>Email Address already taken!</div>";
+	              }
+	              else {
+	              	// register
+					$new_seller = $objsign->addRetailers($_POST['retailers_firstname'], $_POST['retailers_lastname'], $_POST['retailers_phone'], $_POST['retailers_company'], $_POST['retailers_email'], $_POST['retailers_password'], $_POST['retailers_address']);
+
+						$_SESSION['retailers_email'] = $_POST['retailers_email'];
+
+					header("Location: retailers_dashboard.php?msg=Successfuly logged in");
+					exit;
+					}
+				}
+
+			}
+
+			?>
+				</div>
+				
+				<img src="images/reg.png" class="img-fluid" alt="registration pics" id="regPics" width="480" height="400">
+				<div>
+<!-- PHP Login for customers -->
+			<?php  
+
+					if (isset($_POST['cust_signin_btn']) && $_POST['cust_signin_btn']== 'Sign In') {
+
+						$formerrors = array();
+
+						if (empty($_POST['cust_email'])) {
+							$formerrors[] = "Email field is required";
+						}
+
+						if (empty($_POST['cust_password'])) {
+							$formerrors[]= "Password field is required";
+						}
+
+						if (!empty($formerrors)) {
+							echo "<ul class='alert alert-danger mt-2'>";
+							foreach ($formerrors as $key => $value) {
+								echo "<li>$value</li>";
+							}
+							echo "</ul>";
+						}
+						elseif (empty($formerrors)) {
+							$objlogin = new MyCustomers;
+							$_POST['cust_password'] = md5($_POST['cust_password']);
+
+							$output = $objlogin->login($_POST['cust_email'], $_POST['cust_password']); 
+							if (!$output) {
+								echo "<p class='alert alert-danger'>Invalid Login credentials</p>";
+							}
+							else {
+								$_SESSION['cust_email'] = $_POST['cust_email'];
+								header("Location: customer_dashboard.php");
+								exit;
+								
+							}
+						}
+
+					}
+
+			?>
+		</div>
+
+		<div>
+<!-- PHP Login for Retailers -->
+			<?php  
+
+				if (isset($_POST['retailers_login_btn']) && $_POST['retailers_login_btn']== 'Log In') {
+
+					$allerrors = array();
+
+					if (empty($_POST['retailers_email'])) {
+						$allerrors[] = "Email field is required";
+					}
+
+					if (empty($_POST['retailers_password'])) {
+						$allerrors[]= "Password field is required";
+					}
+
+					if (!empty($allerrors)) {
+						echo "<ul class='alert alert-danger mt-2'>";
+						foreach ($allerrors as $key => $value) {
+							echo "<li>$value</li>";
+						}
+						echo "</ul>";
+					}
+					elseif (empty($allerrors)) {
+						$objlog = new MyRetailers;
+
+						$myOutput = $objlog->loginRetailer($_POST['retailers_email'], $_POST['retailers_password']); 
+						if (!$myOutput) {
+							echo "<p class='alert alert-danger'>Invalid Login credentials</p>";
+						}
+						else {
+							$_SESSION['retailers_email'] = $_POST['retailers_email'];
+							header("Location: retailers_dashboard.php?msg=Successfully logged in");
+							exit;
+						}
+					}
+
+				}
+
+		?>
+			</div>
 			</div>
 
+<!-- Customers login form -->
+			<div id="div-ExtUser" style="display:none" class="animate__animated animate__bounceInDown">
+				<h6>Existing Buyer</h6><br>
 
-			<div id="div-ExtSeller" style="display:none" class="animate__animated animate__fadeInBottomLeft" >
-				<h6>Existing Seller</h6>
-				<form id="form-ExtSler" action="" method="post" class="form-group">
-					<input type="text" id="extSlnm" class="form-control" placeholder="Username" required>
-					<input type="password" id="extSlpswd" class="form-control" placeholder="Password" required>
-					<button id="extSeller-btn" class="btn btn-block btn-dark">Sign In</button>
+				<form name="form-ExtUser" action="" method="post" class="form-group">
+					<label>Email Address</label>
+					<input type="email" name="cust_email" class="form-control" placeholder="Email address">
+					<label>Password</label>
+					<input type="password" name="cust_password" class="form-control" placeholder="Password"><br>
+					<input type="submit" name="cust_signin_btn" class="btn btn-block btn-dark" value="Sign In">
 				</form>
 			</div>
 
+
+<!-- Customers signup form -->
+			<div id="div-NewUser" style="display:none" class="animate__animated animate__rotateIn">
+				<h6>New Buyer</h6>
+						<form id="form-newUser" action="" method="post" class="form-group" name="NewUser-Form">
+			
+							<label>Firstname</label>
+							<input type="text" name="cust_firstname" class="form-control" placeholder="Firstname">
+							<label>Lastname</label>
+							<input type="text" name="cust_lastname" class="form-control" placeholder="Lastname">
+							<label>Phone Number</label>
+							<input type="text" name="cust_phone" class="form-control" placeholder="Phone Number">
+							<label>Email Address</label>
+							<input type="email" name="cust_email" class="form-control" placeholder="Email Address">
+							<label>Username</label>
+							<input type="text" name="cust_username" class="form-control" placeholder="Username">
+							<label>Password</label>
+							<input type="password" name="cust_password" class="form-control" placeholder="Password">
+							<label>Confirm Password</label>
+							<input type="password" name="cust_CFpassword" class="form-control" placeholder="Confirm Password">
+							<label>Select Gender</label>
+							<input type="radio" name="cust_gender" value="male"> Male
+							<input type="radio" name="cust_gender" value="female"> Female<br>
+							<label>Address</label>
+							<textarea id="cust_address" placeholder="Enter Address" name="cust_address" class="form-control" rows="3"></textarea>
+							<input type="checkbox" name="terms"> I agree to <a href="#" data-toggle="modal" data-target="#staticBackdrop">Terms & Conditions</a>
+							<input type="submit" id="cust_signup_btn" class="btn btn-block btn-dark" name="cust_signup_btn" value="Sign Up">
+						</form>
+			</div>
+
+<!-- Retailers login form -->
+			<div id="div-ExtSeller" style="display:none" class="animate__animated animate__fadeInBottomLeft" >
+				<h6>Existing Seller</h6>
+				<form name="retailers_login_form" action="" method="post" class="form-group">
+					<label>Email Address</label>
+					<input type="email" name="retailers_email" class="form-control" placeholder="Email">
+					<label>Password</label>
+					<input type="password" name="retailers_password" class="form-control" placeholder="Password"><br>
+					<input type="submit" name="retailers_login_btn" class="btn btn-block btn-dark" value="Log In">
+				</form>
+			</div>
+
+<!-- Retailers signup form -->
 			<div id="div-NewSeller" style="display:none" class="animate__animated animate__backInUp">
 				<h6>New Seller</h6>
-				<form id="form-newSeller" action="" method="post" class="form-group">
-					<input type="text" id="newSlName" class="form-control" placeholder="Firstname" required>
-					<input type="text" id="newSlNames" class="form-control" placeholder="Lastname" required>
-					<input type="text" id="newSlPhone" class="form-control" placeholder="Phone Number" required>
-					<input type="text" id="newSlEmail" class="form-control" placeholder="Email Address" required>
-					<input type="text" id="newSlUsrnme" class="form-control" placeholder="Username" required>
-					<input type="password" id="newSlpswd" class="form-control" placeholder="Password" required>
-					<input type="password" id="newSlCFpswd" class="form-control" placeholder="Confirm Password" required>
-					<input type="radio" name="sllrgender" id="sllrmale" value="male"> Male
-					<input type="radio" name="sllrgender" id="sllrfemale" value="female"> Female
-					<textarea id="sllraddress" placeholder="Enter Address" name="sllraddress" class="form-control" rows="3"></textarea>
+				<form name="retailers_signup_form" action="" method="post" class="form-group">
+					<label>Firstname</label>
+					<input type="text" name="retailers_firstname" class="form-control" placeholder="Firstname">
+					<label>Lastname</label>
+					<input type="text" name="retailers_lastname" class="form-control" placeholder="Lastname">
+					<label>Phone Number</label>
+					<input type="text" name="retailers_phone" class="form-control" placeholder="Phone Number">
+					<label>Company Name</label>
+					<input type="text" name="retailers_company" class="form-control" placeholder="Email Address">
+					<label>Email Address</label>
+					<input type="email" name="retailers_email" class="form-control" placeholder="Username">
+					<label>Password</label>
+					<input type="password" name="retailers_password" class="form-control" placeholder="Password">
+					<label>Address</label>
+					<textarea name="retailers_address" placeholder="Enter Address" class="form-control" rows="3"></textarea>
 
-					<input type="checkbox" name="terms" id="termsCond2"> I agree to <a href="#" data-toggle="modal" data-target="#staticBackdrop">Terms & Conditions</a>
-					<button id="newSeller-btn" class="btn btn-block btn-dark">Sign In</button>
+					<input type="checkbox" name="terms"> I agree to <a href="#" data-toggle="modal" data-target="#staticBackdrop">Terms & Conditions</a>
+					<input type="submit" name="retailers_signup_btn" class="btn btn-block btn-dark" value="Sign Up">
 				</form>
 			</div>
 				

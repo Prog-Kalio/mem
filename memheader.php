@@ -84,7 +84,9 @@ ob_start();
 		#r1c2 h3 {
 			color: rgb(245,245,245);
 		}
-
+		a:link {
+			text-decoration: none;
+		}
 		#loginrow {
 			margin: 20px 0;
 			margin: auto;
@@ -102,7 +104,7 @@ ob_start();
 		}
 
 		#r2 .r2c {
-			min-height: 400px;
+			min-height: 430px;
 			padding: 10px;
 			background-color: rgb(245,245,245);
 		}
@@ -273,6 +275,10 @@ ob_start();
 		}
 		#regPicsDiv {
 			margin-top: 20px;
+		}
+
+		#regPicsDiv #img2 {
+			height: 240px;
 		}
 
 		#r6, #r7, #r8, #r9, #r10 {
@@ -499,7 +505,7 @@ ob_start();
 					</div>
 				</div>
 				<div class="col-md-7 r1c" id="r1c2">
-					<h3>MEDICAL EQUIPMENT MARKET</h3>
+					<a href="index.php"><h3>MEDICAL EQUIPMENT MARKET</h3></a>
 				</div>
 				<div class="col-md-3 r1c" id="r1c3">
 					<input type="search" name="search" id="page-search" placeholder="Search equipment name" class="form-control">

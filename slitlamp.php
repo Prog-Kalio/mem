@@ -38,7 +38,7 @@ include_once("memheader.php");
                     	<label>Qty: </label>
                     	<input type="text" name="qty" id="qty" size="2px" style="text-align:center">
                     </div><br>
-					<a href="equip1.html"><button class="btn btn-success btn-block" id="btn-buy1">Proceed to payment</button></a>
+					<a href="login.php"><button class="btn btn-success btn-block" id="btn-buy1">Proceed to payment</button></a>
 					<br><br>
 					<h5>FEATURES:</h5>
 					<p>

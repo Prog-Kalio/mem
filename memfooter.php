@@ -8,7 +8,7 @@
 					<p><a href="#">FAQ</a><br>
 					<a href="#">Delivery</a><br>
 					<a href="#">Career</a><br>
-					<a href="#">Complaints</a></p>
+					<a href="admin.php">Admin</a></p>
 
 					<h5>PAYMENT PLATFORMS</h5>
 					<a href="#"><img src="images/mastercard.png" class="img-fluid" alt="Mastercard"></a>&nbsp;
@@ -50,7 +50,7 @@
 <!-- Row 11 -->
 			<div class="row" id="r11">
 				<div class="col-md-12 r11c" id="r11c1">
-					<p>Designed by Medical Equipment Market. All rights reserved &copy; MEM </p>
+					<p>Designed by Medical Equipment Market. All rights reserved &copy; MEM</p>
 				</div>
 			</div>
 
@@ -109,6 +109,21 @@
 					$('#fa-times').show();
 				});
 
+				$('#admin_signup').click(function(){
+					$('#adminpix_div').hide();
+					$('#adminlogin_formdiv').hide();
+					$('#adminsignup_formdiv').show();
+					$('#adminsignup_formdiv').addClass('animate__animated animate__rotateIn');
+					$('#fa-times').show();
+				});
+
+				$('#admin_login').click(function(){
+					$('#adminpix_div').hide();
+					$('#adminsignup_formdiv').hide();
+					$('#adminlogin_formdiv').show();
+					$('#adminlogin_formdiv').addClass('animate__animated animate__bounceInDown');
+					$('#fa-times').show();
+				});
 
 				$('#fa-times').click(function(){
 					location.reload(true);
